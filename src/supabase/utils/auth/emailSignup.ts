@@ -8,8 +8,18 @@ export type EmailSignupPayload = {
 export async function emailSignup(payload: EmailSignupPayload) {
     const { email, password } = payload
 
-    const { data, error } = await supabase?.auth.signUp({
+    if (!supabase) {
+        throw new Error("Supabase client is not available")
+    }
+
+    const res = await supabase.auth.signUp({
         email,
         password
     })
+
+    if (res.error || !res) {
+        throw new Error("Failed to sign up")
+    }
+
+    return res.data
 }
