@@ -11,7 +11,7 @@ import {
 import { emailSignup } from "@/supabase/utils/auth/emailSignup";
 export default function Signup() {
   return (
-    <Stack alignItems="center">
+    <Stack alignItems="center" h="100vh" w="100vw" justify="center">
       <Text fontSize="55" position="relative" alignItems="center">
         Welcome to Forward
       </Text>
